@@ -53,9 +53,9 @@ form:
             classes: editor
         -
             name: images
-            label: 'Images'
+            label: 'Image'
             type: file
-            multiple: true
+            multiple: false
             accept:
                 - 'image/*'
         -
