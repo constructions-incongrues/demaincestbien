@@ -2,8 +2,8 @@
 
 {% block content %}
     {% for event in page.collection %}
-<h2>>
-<li class="events-wrapper gap flex column">
+
+<li class="event flex gap border-bottom border-dark flex-50 padding-md">
     <!--Block for event cover-->
     <div class="cover-wrapper w-50">
         {% for image in event.media.images %}
@@ -13,6 +13,8 @@
     <!--Block for event information-->
     <div class="info-container w-50">
         <h1 class="titre"><strong class="artist">{{ event.title|e }}</strong></h1>
+        <!--Block for event description-->
+        <p class="description border-bottom border-dark">{{ event.header.description }}</p>
         <!--Block for event date-->
         <span class="info-wrapper">
             <p>début: {{ event.header.start_date }} {{ event.header.start_time }}</p>
@@ -20,18 +22,25 @@
         </span>
         <!--Block for event location-->
         <span class="info-wrapper">
-            <p>Où? </p>{{ event.header.venue }}</p>
+            <p>Où?</p>
+            <p>{{ event.header.venue }}</p>
         </span>
-        <li>PAF: {{ event.header.fee }}</li>
-        <p class="description border-bottom border-dark">
-        {{ event.header.description }}</p>
-        <li>images:
-        <ul>
-        {% for image in event.media.images %}
-        <li>{{image|data_uri }}</li>
-        {% endfor %}
-        </ul>
-        </li>
+        <!--Block for event fee-->
+        <span class="info-wrapper">
+            <p>Combien? </p>
+            <p>{{ event.header.fee }}€</p>
+        </span>
+        <hr>
+        <!--Block for event buttons-->
+         <div class="flex gap">
+            <button class="add-event flex align-center gap-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-plus"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/><path d="M3 10h18"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
+                Ajouter
+            </button>
+            <button class="share flex align-center gap-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat-2"><path d="m2 9 3-3 3 3"/><path d="M13 18H7a2 2 0 0 1-2-2V6"/><path d="m22 15-3 3-3-3"/><path d="M11 6h6a2 2 0 0 1 2 2v10"/></svg>
+            </button>
+        </div>
 </li>
     {% endfor %}
 {% endblock %}
