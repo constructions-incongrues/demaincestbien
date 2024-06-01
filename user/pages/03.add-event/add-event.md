@@ -12,6 +12,7 @@ pagefrontmatter:
         category: event
 form:
     name: add_event
+    classes: 'flex column gap-sm margin-aut'
     fields:
         -
             name: title
@@ -65,6 +66,7 @@ form:
         -
             type: submit
             value: Ajouter
+            classes: 'btn-dark'
     process:
         -
             add_page: true
