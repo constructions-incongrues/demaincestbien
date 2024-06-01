@@ -33,8 +33,6 @@ form:
             name: end_date
             label: 'Date de fin'
             type: date
-            validate:
-                required: true
         -
             name: end_time
             label: 'Heure de fin'
