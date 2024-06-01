@@ -1,0 +1,21 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% for event in page.collection %}
+<h2>{{ event.title|e }}</h2>
+<ul>
+    <li>début: {{ event.header.start_date }} {{ event.header.start_time }}</li>
+    <li>fin: {{ event.header.end_date }} {{ event.header.end_time }}</li>
+    <li>lieu: {{ event.header.venue }}</li>
+    <li>PAF: {{ event.header.fee }}</li>
+    <li>description: {{ event.header.description }}</li>
+    <li>images:
+    <ul>
+    {% for image in event.media.images %}
+    <li>{{image.cropResize(150, 150).html|raw}}</li>
+    {% endfor %}
+    </ul>
+    </li>
+</ul>
+    {% endfor %}
+{% endblock %}
