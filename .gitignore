@@ -24,6 +24,7 @@ user/data/*
 user/plugins/*
 !user/plugins/.*
 user/themes/*
+!user/themes/demaincestbien
 !user/themes/.*
 user/**/config/security.yaml
 
