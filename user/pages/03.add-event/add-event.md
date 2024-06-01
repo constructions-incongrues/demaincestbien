@@ -1,5 +1,5 @@
 ---
-title: 'Soumettre un événement'
+title: 'Ajouter'
 template: form
 pageconfig:
     parent: '/event'
