@@ -14,54 +14,69 @@ form:
     name: add_event
     classes: 'flex column gap-sm margin-aut'
     fields:
-        -
-            name: title
-            label: 'Titre'
-            type: text
-            validate:
-                required: true
-        -
-            name: start_date
-            label: 'Date de début'
-            type: date
-            validate:
-                required: true
-        -
-            name: start_time
-            label: 'Heure de début'
-            type: time
-        -
-            name: end_date
-            label: 'Date de fin'
-            type: date
-        -
-            name: end_time
-            label: 'Heure de fin'
-            type: time
-        -
-            name: venue
-            label: 'Lieu'
-            type: text
-        -
-            name: fee
-            label: 'PAF'
-            type: textarea
-        -
-            name: description
-            label: 'Description'
-            type: textarea
-            size: long
-            classes: editor
-        -
-            name: images
-            label: 'Image'
-            type: file
-            multiple: false
-            accept:
-                - 'image/*'
-        -
-            name: honeypot
-            type: honeypot
+        quoi:
+            type: section
+            title: Quoi ?
+            underline: true
+            fields:
+                title:
+                    label: 'Titre'
+                    type: text
+                    autofocus: true
+                    validate:
+                        required: true
+                description:
+                    label: 'Description'
+                    type: textarea
+                images:
+                    label: 'Image'
+                    type: file
+                    multiple: false
+                    accept:
+                        - 'image/*'
+        quand:
+            type: section
+            title: Quand ?
+            underline: true
+            fields:
+                start_date:
+                    label: 'Date de début'
+                    type: date
+                    validate:
+                        required: true
+                start_time:
+                    label: 'Heure de début'
+                    type: time
+                end_date:
+                    label: 'Date de fin'
+                    type: date
+                end_time:
+                    label: 'Heure de fin'
+                    type: time
+        ou:
+            type: section
+            title: Où ?
+            underline: true
+            fields:
+                place:
+                    label: 'Localité'
+                    type: text
+        combien:
+            type: section
+            title: Combien ?
+            underline: true
+            fields:
+                price:
+                    label: 'Prix'
+                    type: text
+        more:
+            type: section
+            title: Mais encore ?
+            underline: true
+            fields:
+                contact:
+                    label: 'Contact'
+                    type: text
     buttons:
         -
             type: submit
