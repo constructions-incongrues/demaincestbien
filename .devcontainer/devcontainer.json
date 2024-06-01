@@ -17,7 +17,7 @@
 	"forwardPorts": [8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "./bin/grav install && ./bin/gpm install -y add-page-by-form && ./bin/gpm install -y admin && ./bin/grav server"
+	"postCreateCommand": "./bin/grav install && ./bin/gpm install -y add-page-by-form && ./bin/gpm install -y feed && ./bin/grav server"
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
