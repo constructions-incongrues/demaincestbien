@@ -27,6 +27,8 @@ user/themes/*
 !user/themes/demaincestbien
 !user/themes/.*
 user/**/config/security.yaml
+!user/pages/01.event/event.md
+user/pages/01.event/*
 
 # Environments
 .env
