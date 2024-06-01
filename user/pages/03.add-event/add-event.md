@@ -3,8 +3,8 @@ title: 'Ajouter'
 template: form
 pageconfig:
     parent: '/event'
-    include_username: true
-    overwrite_mode: true
+    overwrite_mode: false
+    slug_field: [start_date, title]
 pagefrontmatter:
     template: item
     title: Event
