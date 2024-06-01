@@ -1,0 +1,372 @@
+
+/*--- INDEX ----*/
+/*  -- 1. Normalize
+    -- 2. Global
+        -- 2.1 Variables
+        -- 2.2 Fonts
+        -- 2.3 Layout
+        -- 2.4 Buttons
+        -- 2.5 Borders
+        -- 2.6 Media
+    -- 3. Header
+    -- 4. Main
+    -- 5. Footer
+    -- 6. Media Queries
+*/
+
+
+/* 1. Normalize */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Micro+5&display=swap');
+/* 2. Global */
+
+/* 2.1 Variables */
+:root{
+    --green: #31ee02;
+    --pink: #ff00a5;
+    --text-body: #f4f4f4;
+    --dark: #011201;
+    --border-color: #011201;
+    --link-color: #f4f4f4;
+    --link-color-hover: #0056b3;
+    --family-title: 'Micro 5', monospace;
+}
+
+/* 2.2 Fonts */
+body {
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--dark);
+    background-color: #f4f4f4;
+}
+
+main{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+h1{
+    font-size: 5rem;
+    text-transform: uppercase;
+    /* margin-bottom: 2rem;
+    padding-bottom:1rem; */
+    font-family: var(--family-title);
+    font-weight: 300;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.artist{
+    color:var(--pink);
+}
+
+.titre{
+    background-color:var(--dark);
+    margin:0 0 3rem 0;
+    padding:1rem;
+    line-height: 1em;
+}
+
+hr{
+    width:100%;
+    height: 1px;
+    display: block;
+    background-color: var(--dark);
+    margin: 1rem 0;
+    border:0;
+}
+/* 2.3 Layout */
+
+body{
+    min-height: 100vh;
+    background: rgb(74,254,53);
+    background:url(assets/img/noise.svg), linear-gradient(117deg, rgba(74,254,53,1) 19%, rgba(255,76,243,1) 62%, rgba(255,0,149,1) 100%); 
+}
+
+.filter-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:1em;
+}
+
+.margin-auto{
+    margin: 0 auto;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.container-min{
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.flex-50{
+    flex: 0 0 50%;
+}
+
+.gap{
+    gap: 2rem;
+}
+
+.gap-sm{
+    gap: 10px;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.align-start{
+    align-items: flex-start;
+}
+
+.justify-center{
+    justify-content: center;
+}   
+
+.justify-between{
+    justify-content: space-between;
+}   
+
+.self-center{
+    align-self: center;
+}
+
+/* Children flex */
+.w-50{
+    width:calc(50% - 2rem);
+    flex-grow: 2;
+    flex-shrink: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+/* Positions */
+
+.relative{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.fixed{
+    position: fixed;
+    z-index: 100;
+}
+
+.left{
+    left: 0;
+}
+
+.right{
+    right: 0;
+}
+
+/* 2.4 Buttons */
+
+button,
+input[type="submit"]{
+    display: inline-block;
+    appearance: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+
+.back{
+    color:var(--dark);
+    margin:1rem 0;
+}
+
+.btn-green{
+    background-color: var(--green);
+    color: var(--text-body);
+    transition: 0.4s ease-in-out all;
+}
+
+.btn-dark{
+    background-color: var(--dark);
+    color: var(--text-body);
+    transition: 0.1s ease-in-out all;
+}
+
+.btn-dark:hover{
+    background-color: var(--green);
+    color:var(--dark);
+}
+
+.pagination button{
+    background-color: inherit;
+}
+
+.first{
+    font-weight: bold;
+}
+
+/* Spacing */
+
+.border-bottom{
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.padding-md{
+    padding: 2rem;
+}
+
+/* 2.5 Borders */
+
+.border-bottom{
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+.border-w-large{
+    border-width: 2px;
+}
+
+.border-dark{
+    border-color: var(--dark);
+}
+
+.add{
+    margin-right:2vw;
+    rotate: 90deg;
+    transform-origin: 40% 170%;
+    transition:0.2s ease-in-out all;
+}
+
+.add:hover{
+    background-color: var(--dark);
+    color: var(--text-body);
+}
+.add:hover svg{
+    transition:0.2s ease-in-out all;
+}
+
+.add:hover svg{
+    transform: rotate(30deg);
+}
+
+/* 2.6 Media */
+img{
+    width: 100%;
+    height: auto;
+}
+
+.cover-wrapper{
+    overflow: hidden;
+}
+
+.cover{
+    width: 100%;
+    height: auto;
+    border: 7px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+.gif-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.gif{
+    width: auto;
+    height: 60px;
+}
+
+/* 3. Header */
+
+header{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--dark);
+    max-height: 50px;
+}
+
+.logo{
+    display: flex;
+    width: 100%;
+    max-width: 250px;
+    height: min-content;
+}
+
+.logo svg{
+    width: 100%;
+}
+/* 4. Main */
+
+/* Event block */
+.info-wrapper{
+    display: flex;
+    gap:5px;
+}
+
+.info-wrapper p:first-child{
+    font-weight: bold;
+}
+
+.info-wrapper p{
+    line-height: 1em;
+    margin: 0.5em 0;
+}
+
+.pagination{
+    padding: 0 0 1rem 0;
+}
+
+/* Forms */
+form{
+    max-width: 800px;
+    width: 100%;
+}
+
+form input{
+    width: fit-content;
+    border:none;
+    border-radius:3px;
+    padding:5px;
+}
+
+textarea{
+    resize: none;
+    border:none;
+    border-radius:3px;
+    padding:5px;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+}
