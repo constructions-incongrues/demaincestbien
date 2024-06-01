@@ -44,15 +44,9 @@ form:
                     type: date
                     validate:
                         required: true
-                start_time:
-                    label: 'Heure de début'
-                    type: time
                 end_date:
                     label: 'Date de fin'
                     type: date
-                end_time:
-                    label: 'Heure de fin'
-                    type: time
         ou:
             type: section
             title: Où ?
