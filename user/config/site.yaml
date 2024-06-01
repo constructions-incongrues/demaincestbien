@@ -1,8 +1,8 @@
 title: 'Demain c''est Bien'
 default_lang: fr
 author:
-  name: 'Joe Bloggs'
-  email: joe@example.com
+  name: 'Demain c''est Bien'
+  email: demaincestbien@incongru.org
 taxonomies:
   - category
   - tag
