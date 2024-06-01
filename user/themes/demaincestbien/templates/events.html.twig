@@ -7,6 +7,7 @@
     <!--Block for event cover-->
     <div class="cover-wrapper w-50">
         {% for image in event.media.images %}
+        {{dump(image)}}
         <img class="cover border-dark" src="{{ image|data_uri }}" alt="Event cover">
         {% endfor %}
     </div>
