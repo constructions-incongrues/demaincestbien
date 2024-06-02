@@ -3,7 +3,7 @@
 {% block content %}
     {% for event in page.collection %}
 
-<li class="event flex gap border-bottom border-dark flex-50 padding-md">
+<li data-aos="fade-up" data-aos-duration="2000" class="event flex gap border-bottom border-dark flex-50 padding-md">
     <!--Block for event cover-->
     <div class="cover-wrapper w-50">
         {% for image in event.media.images %}
@@ -54,11 +54,6 @@
     {# /your/site/grav/user/themes/custom-theme/templates/blog.html.twig #}
 
 {% set collection = page.collection %}
-
-{# Render the list of blog posts (automatically filtered when using pagination) #}
-{% for child in collection %}
-   ...
-{% endfor %}
 
 {# Render the pagination list #}
 {% if config.plugins.pagination.enabled and collection.params.pagination %}
