@@ -26,12 +26,12 @@ form:
         #     - "{{ form.value.email }}"
         #   subject: "[Feedback] {{ form.value.name|e }}"
         #   body: "{% include 'forms/data.html.twig' %}"
-        save:
-          fileprefix: feedback-
-          dateformat: Ymd-His-u
-          extension: txt
-          body: "{% include 'forms/data.txt.twig' %}"
-        message: Thank you for your feedback!
-        display: event
+      - save:
+        fileprefix: feedback-
+        dateformat: Ymd-His-u
+        extension: txt
+        body: "{% include 'forms/data.txt.twig' %}"
+        operation: create
+        # display: event
     cache_enable: false
 ---
