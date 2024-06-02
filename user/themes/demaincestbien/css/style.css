@@ -496,6 +496,19 @@ select{
     border: none;
     height: fit-content;
 }
+.newsletter-wrapper{
+    width: fit-content;
+    max-width: 100%!important;
+}
+
+.newsletter-wrapper label{
+    display: none;
+}
+
+.newsletter .form-field,
+.newsletter .buttons{
+    width: fit-content;
+}
 /* 5. Footer */
     footer{
         padding: 1rem;

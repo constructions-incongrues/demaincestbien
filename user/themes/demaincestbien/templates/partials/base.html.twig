@@ -54,10 +54,10 @@
                 
                 <div class="newsletter flex justify-center align-center fixed gap bottom">
                     <p>Recevez notre newsletter</p>
-                    
-                    <input type="email" placeholder="Votre adresse email">
-                    <button class="btn-green">S'inscrire</button>
-                    <button class="close">
+                     {% include 'forms/form.html.twig' with { form: forms('subscribe') } %}
+                    {# <input type="email" placeholder="Votre adresse email">
+                    <button class="">S'inscrire</button> #}
+                    <button class="close" action="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                     </button>
                 </div>
