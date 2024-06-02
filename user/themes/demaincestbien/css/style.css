@@ -620,11 +620,46 @@ select{
     transform:scale(1.5);
 }
 
-/* [data-status="close"]{
-    display: none;
-} */
-
 .description{
     border-bottom: 2px solid var(--dark);
     padding-bottom: 0;
+    /* max-height: 0; */
+}
+
+.accordion{
+    overflow: hidden;
+}
+
+.accordion[data-status=open]{
+    animation-name: open;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.3s; 
+}
+
+.accordion[data-status=close]{
+    animation-name: close;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;   
+    animation-duration: 1.3s; 
+}
+
+@keyframes open {
+    0%{
+        max-height: 100%;
+        /* transform: scaleY(1); */
+    }
+    100%{
+        max-height: 1000px;
+        /* transform: scaleY(1.5); */
+    }
+}
+
+@keyframes close {
+    0%{
+        max-height: 1000px;
+    }
+    100%{
+        max-height: 100%;
+    }
 }

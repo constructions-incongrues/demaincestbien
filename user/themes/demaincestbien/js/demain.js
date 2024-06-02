@@ -83,10 +83,13 @@ events.forEach((event) => {
      
     let accordion = event.querySelector('.accordion');
     let accordionContent = accordion.textContent;
-    console.log(accordion.getAttribute('data-status'));
+    
+    let accordionHeightMax = accordion.offsetHeight+"px";
+    let accordionHeightMin = "";
 
     if(accordion.getAttribute('data-status') === 'close') {
         accordion.textContent = truncateString(accordionContent, 250);
+        accordionHeightMin = accordion.offsetHeight+"px";;
     } else {
         accordion.textContent
     }
@@ -94,12 +97,34 @@ events.forEach((event) => {
     let plusButton = event.querySelector('.plus');
     plusButton.addEventListener('click', () => {  
         let dataValue = accordion.getAttribute('data-status');
-        if(dataValue === 'close'){
-            accordion.setAttribute('data-status', 'open');
-            accordion.textContent = accordionContent;
-        }else {
-            accordion.setAttribute('data-status', 'close');
-            accordion.textContent = truncateString(accordionContent, 250);
+        if (dataValue === 'close') {
+            setTimeout(() => {
+                accordion.setAttribute('data-status', 'open');
+                accordion.textContent = accordionContent}, 400
+            );
+                accordion.animate([
+                    { "height": accordionHeightMin },
+                    { "height": accordionHeightMax } // Change 'maxheight' to 'max-height'
+                ], {
+                    duration: 400,
+                    delay: 200,
+                    timingFunction: 'ease-out',
+                });
+            
+        } else {
+            
+            setTimeout(() => {
+                accordion.setAttribute('data-status', 'close');
+                accordion.textContent = truncateString(accordionContent, 250)
+            }, 400);
+            accordion.animate([
+                { "height": accordionHeightMax },
+                { "height": accordionHeightMin } 
+            ], {
+                duration: 400,
+                delay: 200,
+                timingFunction: 'ease-out',
+            });
         }
     });
 })
