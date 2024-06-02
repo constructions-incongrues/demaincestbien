@@ -53,7 +53,7 @@
     {% endfor %}
     {# /your/site/grav/user/themes/custom-theme/templates/blog.html.twig #}
 
-{% set collection = page.collection[page.path] %}
+{% set collection = page.collection %}
 
 {# Render the list of blog posts (automatically filtered when using pagination) #}
 {% for child in collection %}
