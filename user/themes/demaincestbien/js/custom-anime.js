@@ -1,10 +1,14 @@
 console.log('🐽')
 import anime from 'anime.min.js';
 // AnimeJS
-anime({
-    targets: '.up',
-    translateX: 250,
-    rotate: '1turn',
-    backgroundColor: '#FFF',
-    duration: 800
-  });
+let myAnimation = anime({
+  targets: '.up',
+  // Properties 
+  translateX: 100,
+  borderRadius: 50,
+  // Property Parameters
+  duration: 2000,
+  easing: 'linear',
+  // Animation Parameters
+  direction: 'alternate'
+});

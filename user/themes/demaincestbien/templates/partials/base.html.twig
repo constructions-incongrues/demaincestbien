@@ -74,11 +74,14 @@
 
     {% block footer %}
         <footer class="flex justify-center align-center">
-            <div class="up">
-                <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-                <path fill-opacity="0" id="svg_1" d="m429,549c-23,-37 -8,-73 13,-82c21,-9 32,-44 10,-61" opacity="NaN" stroke="#000" fill="#0fffff"/>
-                <path id="svg_2" d="m434,422l-6,-46l52,25l-30,1l-16,20z" opacity="NaN" stroke="#fff" fill="#000000"/>
-                </svg>
+            <div class="up fixed bottom right">
+                <div class="top-arrow">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                <div class="tail">
+                </div>
+                <div class="circle"></div>
             </div>
             <p>©2024 Demain c'est bien</p>
         </footer>
@@ -90,7 +93,6 @@
 
     </body>
     <script type="text/javascript" src="{{ theme_url }}/js/demain.js"></script>
-    <script src="{{ base_dir }}/node_modules/animejs/lib/anime.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     AOS.init();

@@ -1,7 +1,3 @@
 enabled: true
 dropdown:
   enabled: true
-assets:
-    js:
-        - 'theme://js/anime.min.js'
-        - 'theme://js/custom-anime.js'
