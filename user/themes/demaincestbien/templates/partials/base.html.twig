@@ -32,25 +32,65 @@
     {{ assets.js()|raw }}
 {% endblock %}
 </head>
-    <body class="{{ page.header.body_classes|e }}">
+    <body class="{{ page.header.body_classes|e }} relative">
     {% block header %}
+    
         <header>
                 <a class="logo" href="{{ home_url|e }}">
                     <img src="{{ theme_url }}/images/logo.svg">
                 </a>
-                {% if template == events %} 
+                <div class="gif-container">
+                    <img class="gif" src="{{ theme_url }}/images/gif-banner.gif">
+                </div> 
+                <div class="giphy fixed left" style="background-image:url('{{ theme_url }}/images/giphy.gif')">
+                </div>
+                
+                {% if pages.header.template == events %} 
                     {% block header_navigation %}
-                        <button class="add fixed right flex align-center gap-sm btn-green">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-atom"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg>
-                            {% include 'partials/navigation.html.twig' %}
-                        </button>                    
+                        {% include 'partials/navigation.html.twig' %}
                     {% endblock %}
+                
+                <div class="newsletter flex justify-center align-center fixed gap bottom">
+                    <p>Recevez notre newsletter</p>
+                    <input type="email" placeholder="Votre adresse email">
+                    <button class="btn-green">S'inscrire</button>
+                    <button class="close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                </div>
                 {% endif %}
         </header>
     {% endblock %}
 
     {% block body %}
         <main class="container flex column">
+            {% if pages.header.template == events %}       
+            <section class="filter-container relative border-bottom border-dark border-w-large column align-start gap-sm">
+                <!-- Filtre -->
+                
+                <div class="filter-wrapper border-bottom">
+                    <p class="bold">Rechercher</p>
+                    <label for="localisation">Localisation</label>
+                    <select name="localisation" id="localisation">
+                        <option value="loire">Loire</option>
+                        <option value="rhone">Rhône</option>
+                        <option value="puy-dome">Puy de Dôme</option>
+                    </select> 
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                
+                <!-- Tri -->
+                <span class="sort-wrapper">
+                    <label for="sort">Trier par</label>
+                    <select name="sort" id="sort">
+                        <option value="date">Date</option>
+                        <option value="localisation">Localisation</option>
+                        <option value="tarif">Tarif</option>
+                    </select>
+                </span>
+            </section>
+            {% endif %}
             {% block content %}{% endblock %}
         </main>
     {% endblock %}
@@ -66,4 +106,5 @@
     {% endblock %}
 
     </body>
+    <script type="text/javascript" src="{{ theme_url }}/js/demain.js"></script>
 </html>

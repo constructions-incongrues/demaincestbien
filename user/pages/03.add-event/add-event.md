@@ -12,12 +12,13 @@ pagefrontmatter:
         category: event
 form:
     name: add_event
-    classes: 'flex column gap-sm margin-aut'
+    classes: 'flex gap-sm margin-auto'
     fields:
         quoi:
             type: section
             title: Quoi ?
             underline: true
+            classes: 'input-wrapper w-100'
             fields:
                 title:
                     label: 'Titre'
@@ -38,6 +39,7 @@ form:
             type: section
             title: Quand ?
             underline: true
+            classes: 'input-wrapper w-50'
             fields:
                 start_date:
                     label: 'Date de début'
@@ -51,6 +53,7 @@ form:
             type: section
             title: Où ?
             underline: true
+            classes: 'input-wrapper w-50'
             fields:
                 place:
                     label: 'Localité'
@@ -66,6 +69,7 @@ form:
         more:
             type: section
             title: Mais encore ?
+            classes: 'input-wrapper w-100'
             underline: true
             fields:
                 contact:

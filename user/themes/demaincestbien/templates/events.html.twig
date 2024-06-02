@@ -17,8 +17,16 @@
         <p class="description border-bottom border-dark">{{ event.header.description }}</p>
         <!--Block for event date-->
         <span class="info-wrapper">
-            <p>début: {{ event.header.start_date }} {{ event.header.start_time }}</p>
-            <p>fin: {{ event.header.end_date }} {{ event.header.end_time }}</p>
+            <p>Quand?</p> 
+            {% if event.header.start_date == event.header.end_date %}
+            <p>Le</p>
+            <p>{{ event.header.start_date|date("m/d/Y", "Europe/Paris") }}</p>
+            {% else %}
+            <p>Du</p>
+            <p>{{ event.header.start_date|date("m/d/Y", "Europe/Paris") }}</p>
+            <p class="bold"> au </p>
+            <p>{{ event.header.end_date|date("m/d/Y", "Europe/Paris") }}</p>
+            {% endif %}
         </span>
         <!--Block for event location-->
         <span class="info-wrapper">
