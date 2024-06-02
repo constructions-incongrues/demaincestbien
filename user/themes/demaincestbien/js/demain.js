@@ -25,7 +25,7 @@ let mainContainer = document.querySelector('.all-events');
 
 sortFilter.addEventListener('click', (event) => {  
     let sortValue = sortFilter.getAttribute('data-value');
-    console.log(sortValue)
+    // console.log(sortValue)
     if(sortValue === 'asc') {
         sortFilter.setAttribute('data-value', 'desc');
         event.target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>`;
@@ -62,17 +62,15 @@ let filterLocation = document.querySelector('.localisation');
 
 filterLocation.addEventListener('change', (event) => {  
     let location = event.target.value;
-    console.log(location);  
     let events = document.querySelectorAll('.event');
-    
-    events.forEach((event) => {  
-        let eventLocation = event.querySelector('.place').textContent;
-        if(location === 'all') {
-            event.style.display = 'block';
-        } else if(location !== eventLocation) {
-            event.style.display = 'none';
-        } else {
-            event.style.display = 'block';
-        }
-    })
-})
+
+    let eventsArray = Array.from(events);
+    eventsArray = eventsArray.filter((event) => {
+        let dep = event.querySelector('.departement span').textContent;
+        return dep === location;
+    });
+
+    eventsArray.forEach((event) => {  
+        mainContainer.appendChild(event);
+    });
+});

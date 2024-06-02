@@ -1,0 +1,20 @@
+form: add_event
+id: 'tmp://forms/session/xtd73ioxwhd8jguv0r1p'
+unique_id: xtd73ioxwhd8jguv0r1p
+url: 'http://127.0.0.1:8000/add-event'
+user: null
+timestamps:
+  created: 1717301760
+  updated: 1717301760
+data: null
+files:
+  images:
+    affiche-rencard-3-scaled.jpg:
+      name: affiche-rencard-3-scaled.jpg
+      full_path: affiche-rencard-3-scaled.jpg
+      type: image/jpeg
+      tmp_name: phpmoyrxj
+      size: 321037
+      path: user/pages/03.add-event/affiche-rencard-3-scaled.jpg
+  images/original:
+    affiche-rencard-3-scaled.jpg: null

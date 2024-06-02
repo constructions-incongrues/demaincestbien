@@ -62,12 +62,9 @@ form:
                     label: 'Département'
                     type: select
                     options:
-                        '69':
-                            value: '69'
-                        '42':
-                            value: '42'
-                        '63':
-                            value: '63'
+                        '69': 69
+                        '42': 42
+                        '63': 63
         combien:
             type: section
             title: Combien ?

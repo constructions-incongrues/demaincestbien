@@ -478,6 +478,15 @@ form h3{
     border-bottom: 1px solid var(--dark);
     padding-bottom:1rem;
 }
+
+select{
+    background-color: var(--dark);
+    color: var(--text-body);
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+    height: fit-content;
+}
 /* 5. Footer */
     footer{
         padding: 1rem;
