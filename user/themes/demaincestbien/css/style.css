@@ -296,6 +296,10 @@ input[type="submit"]{
     border-color: var(--dark);
 }
 
+.event:last-child{
+    border-bottom: none;
+}
+
 .add{
     margin-right:2vw;
     rotate: 90deg;
@@ -364,6 +368,7 @@ img{
     max-height: 150px;
     filter: invert(100%);
     mix-blend-mode: multiply;
+    pointer-events: none;
 }
 /* 3. Header */
 

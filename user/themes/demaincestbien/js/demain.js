@@ -9,15 +9,6 @@ closeBtn.addEventListener('click', () => {
     newsletter.style.display = 'none';
 })
 
-// Hide last border of event items
-
-let eventItems = document.querySelectorAll('.event');
-eventItems.forEach((item, index) => {  
-    if(index === eventItems.length - 1) {
-        item.style.borderBottom = 'none';
-    }
-})
-
 // Sort events by date
 let sortFilter = document.querySelector('.icon-sort');
 // console.log(sortValue);
@@ -67,10 +58,11 @@ filterLocation.addEventListener('change', (event) => {
     let eventsArray = Array.from(events);
     eventsArray = eventsArray.filter((event) => {
         let dep = event.querySelector('.departement span').textContent;
-        return dep === location;
+        return dep !== location;
     });
 
     eventsArray.forEach((event) => {  
         mainContainer.appendChild(event);
-    });
+    });    
+    
 });
