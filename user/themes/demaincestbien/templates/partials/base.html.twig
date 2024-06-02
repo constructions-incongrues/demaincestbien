@@ -93,15 +93,18 @@
             {% endif %}
             {% block content %}{% endblock %}
         </main>
-    {% endblock %}
-    <li class="page-item disabled">
-       {# See issue https://github.com/getgrav/grav-plugin-pagination/issues/29 #}
-       {% set fullsize = page.header.unpaginated ? page.collection('unpaginated') : page.collection %}
-        <span class="page-link"  aria-hidden="true">Showing {{ page.collection | length }} of {{ 
-fullsize|length }} properties</span>
-        <span class="sr-only">Previous</span>
-    </li>
+    {% endblock %}  
+    {% set collection = page.collection() %}
 
+    {# Render the list of blog posts (automatically filtered when using pagination) #}
+    {% for child in collection %}
+    ...
+    {% endfor %}
+    
+    {# Render the pagination list #}
+    {% if config.plugins.pagination.enabled and collection.params.pagination %}
+        {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+    {% endif %}
 
     {% block footer %}
         <footer class="flex justify-center align-center">
