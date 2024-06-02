@@ -1,29 +1,37 @@
 ---
-title: 'Newsletter'
-template: form
-pageconfig:
-    parent: '/event'
-    overwrite_mode: false
-pagefrontmatter:
-    template: item
-    title: Event
-    taxonomy:
-        category: event
+title: Newsletter
 form:
-    name: subscribe
-    classes: 'flex gap-sm margin-auto'
+    name: newsletter
     fields:
         email:
-            type: email
-            underline: true
-            classes: 'input-wrapper w-100'
+          label: Email
+          placeholder: Enter your email address
+          type: email
+          validate:
+            required: true
+
     buttons:
-        -
-            type: submit
-            value: S'inscrire
-            classes: 'btn-dark'
+        submit:
+          type: submit
+          value: Submit
+        reset:
+          type: reset
+          value: Reset
+
     process:
-        - subscribe:
-            filename: newsletter.txt
-            operation: add
+        email:
+          from: "{{ config.plugins.email.from }}"
+          to:
+            - "{{ config.plugins.email.to }}"
+            - "{{ form.value.email }}"
+          subject: "[Feedback] {{ form.value.name|e }}"
+          body: "{% include 'forms/data.html.twig' %}"
+        save:
+          fileprefix: feedback-
+          dateformat: Ymd-His-u
+          extension: txt
+          body: "{% include 'forms/data.txt.twig' %}"
+        message: Thank you for your feedback!
+        display: thankyou
+
 ---
