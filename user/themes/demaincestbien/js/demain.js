@@ -1,5 +1,4 @@
 console.log('🦔')
-
 // CLose button of newsletter
 
 let closeBtn = document.querySelector('.close');
