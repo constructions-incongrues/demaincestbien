@@ -33,6 +33,5 @@ form:
         body: "{% include 'forms/data.txt.twig' %}"
         operation: create
       - reset: true
-        # display: event
     cache_enable: false
 ---
