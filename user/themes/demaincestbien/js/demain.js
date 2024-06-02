@@ -108,6 +108,7 @@ events.forEach((event) => {
                 ], {
                     duration: 400,
                     delay: 200,
+                    fill: 'forwards',
                     timingFunction: 'ease-out',
                 });
             
@@ -123,6 +124,7 @@ events.forEach((event) => {
             ], {
                 duration: 400,
                 delay: 200,
+                fill: 'forwards',
                 timingFunction: 'ease-out',
             });
         }

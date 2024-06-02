@@ -35,6 +35,10 @@ form:
                     multiple: false
                     accept:
                         - 'image/*'
+                imageUrl:
+                    type: url
+                    classes: 'input-wrapper w-100'
+                    label: 'Url Image'
         quand:
             type: section
             title: Quand ?

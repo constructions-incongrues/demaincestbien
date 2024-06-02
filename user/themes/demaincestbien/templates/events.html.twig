@@ -45,9 +45,18 @@
     <li data-aos="fade-up" data-aos-duration="2000" class="event flex gap border-bottom border-dark flex-50 padding-md">
         <!--Block for event cover-->
         <div class="cover-wrapper w-50">
+            {% if event.media.images %}
             {% for image in event.media.images %}
-            <img class="cover border-dark" src="{{ image.url }}" alt="Event cover">
+                {% if image %}
+                <img class="cover border-dark" src="{{ image.url }}" alt="Event cover">
+                {% endif %}
             {% endfor %}
+            {% elseif event.header.imageUrl %}
+            <img class="cover border-dark" src="{{ event.header.imageUrl }}" alt="Event cover">
+            {% else %}
+            <img class="cover border-dark" src="{{ theme_url }}/images/placeholder.jpg" alt="Event cover">
+            {% endif %}
+        </div>
         </div>
         <!--Block for event information-->
         <div class="info-container flex column w-50">
