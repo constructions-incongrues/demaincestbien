@@ -94,6 +94,14 @@
             {% block content %}{% endblock %}
         </main>
     {% endblock %}
+    <li class="page-item disabled">
+       {# See issue https://github.com/getgrav/grav-plugin-pagination/issues/29 #}
+       {% set fullsize = page.header.unpaginated ? page.collection('unpaginated') : page.collection %}
+        <span class="page-link"  aria-hidden="true">Showing {{ page.collection | length }} of {{ 
+fullsize|length }} properties</span>
+        <span class="sr-only">Previous</span>
+    </li>
+
 
     {% block footer %}
         <footer class="flex justify-center align-center">
