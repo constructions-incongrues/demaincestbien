@@ -31,12 +31,12 @@
         <!--Block for event location-->
         <span class="info-wrapper">
             <p>Où?</p>
-            <p>{{ event.header.venue }}</p>
+            <p>{{ event.header.place }}</p>
         </span>
         <!--Block for event fee-->
         <span class="info-wrapper">
             <p>Combien? </p>
-            <p>{{ event.header.fee }}€</p>
+            <p>{{ event.header.price }}€</p>
         </span>
         <hr>
         <!--Block for event buttons-->
@@ -51,4 +51,17 @@
         </div>
 </li>
     {% endfor %}
+    {# /your/site/grav/user/themes/custom-theme/templates/blog.html.twig #}
+
+{% set collection = page.collection[page.path] %}
+
+{# Render the list of blog posts (automatically filtered when using pagination) #}
+{% for child in collection %}
+   ...
+{% endfor %}
+
+{# Render the pagination list #}
+{% if config.plugins.pagination.enabled and collection.params.pagination %}
+    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+{% endif %}
 {% endblock %}

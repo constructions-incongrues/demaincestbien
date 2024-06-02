@@ -1,12 +1,12 @@
 ---
 title: Agenda
 template: events
-visible: false
+visible: true
 content:
     items: '@self.children'
     order:
         by: start
         dir: desc
-    limit: 100
+    limit: 5
     pagination: true
 ---
