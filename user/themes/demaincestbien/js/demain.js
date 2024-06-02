@@ -69,7 +69,6 @@ filterLocation.addEventListener('change', (event) => {
 // Anim Arrow Up
 
 let arrow = document.querySelector('.up')
-let
 arrow.addEventListener('click',()=>{
 
 })
