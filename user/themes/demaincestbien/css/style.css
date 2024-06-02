@@ -274,6 +274,9 @@ input[type="submit"]{
     rotate:80deg;
 }
 
+.plus{
+    background-color: inherit;
+}
 /* Spacing */
 
 .border-bottom{
@@ -615,4 +618,13 @@ select{
 
 .up:hover .circle{
     transform:scale(1.5);
+}
+
+/* [data-status="close"]{
+    display: none;
+} */
+
+.description{
+    border-bottom: 2px solid var(--dark);
+    padding-bottom: 0;
 }

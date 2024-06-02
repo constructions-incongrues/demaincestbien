@@ -75,3 +75,38 @@ arrow.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+//Accordion on description
+let events = document.querySelectorAll('.event');
+
+events.forEach((event) => {
+     
+    let accordion = event.querySelector('.accordion');
+    let accordionContent = accordion.textContent;
+    console.log(accordion.getAttribute('data-status'));
+
+    if(accordion.getAttribute('data-status') === 'close') {
+        accordion.textContent = truncateString(accordionContent, 250);
+    } else {
+        accordion.textContent
+    }
+
+    let plusButton = event.querySelector('.plus');
+    plusButton.addEventListener('click', () => {  
+        let dataValue = accordion.getAttribute('data-status');
+        if(dataValue === 'close'){
+            accordion.setAttribute('data-status', 'open');
+            accordion.textContent = accordionContent;
+        }else {
+            accordion.setAttribute('data-status', 'close');
+            accordion.textContent = truncateString(accordionContent, 250);
+        }
+    });
+})
+
+function truncateString(str, num) {
+    if (str.length <= num) {
+        return str;
+    }
+    return str.slice(0, num) + '...';
+}
