@@ -55,6 +55,11 @@
 
 {% set collection = page.collection %}
 
+{# Render the list of blog posts (automatically filtered when using pagination) #}
+{% for child in collection %}
+   ...
+{% endfor %}
+
 {# Render the pagination list #}
 {% if config.plugins.pagination.enabled and collection.params.pagination %}
     {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
