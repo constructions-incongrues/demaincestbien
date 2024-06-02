@@ -68,7 +68,21 @@ filterLocation.addEventListener('change', (event) => {
 
 // Anim Arrow Up
 
-let arrow = document.querySelector('.up')
-arrow.addEventListener('click',()=>{
+// let topH = document.documentElement.scrollTop;
+// console.log(topH);
+// window.addEventListener('scroll', () => {
+//     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//     if (scrollTop > 0) {
+//         arrow.style.display = 'block';
+//     } else {
+//         arrow.style.display = 'none';
+//     }
+// });
 
-})
+let arrow = document.querySelector('.up');
+arrow.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
