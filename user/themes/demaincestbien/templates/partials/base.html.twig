@@ -65,33 +65,7 @@
 
     {% block body %}
         <main class="container flex column">
-            {% if pages.header.template == events %}       
-            <section class="filter-container relative border-bottom border-dark border-w-large column align-start gap-sm">
-                <!-- Filtre -->
-                
-                <div class="filter-wrapper border-bottom">
-                    <p class="bold">Rechercher</p>
-                    <label for="localisation">Localisation</label>
-                    <select name="localisation" id="localisation">
-                        <option value="loire">Loire</option>
-                        <option value="rhone">Rhône</option>
-                        <option value="puy-dome">Puy de Dôme</option>
-                    </select> 
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date">
-                </div>
-                
-                <!-- Tri -->
-                <span class="sort-wrapper">
-                    <label for="sort">Trier par</label>
-                    <select name="sort" id="sort">
-                        <option value="date">Date</option>
-                        <option value="localisation">Localisation</option>
-                        <option value="tarif">Tarif</option>
-                    </select>
-                </span>
-            </section>
-            {% endif %}
+            
             {% block content %}{% endblock %}
         </main>
     {% endblock %}  

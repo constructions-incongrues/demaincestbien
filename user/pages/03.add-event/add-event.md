@@ -56,8 +56,18 @@ form:
             classes: 'input-wrapper w-50'
             fields:
                 place:
-                    label: 'Localité'
+                    label: 'Lieu'
                     type: text
+                departement:
+                    label: 'Département'
+                    type: select
+                    options:
+                        '69':
+                            value: '69'
+                        '42':
+                            value: '42'
+                        '63':
+                            value: '63'
         combien:
             type: section
             title: Combien ?

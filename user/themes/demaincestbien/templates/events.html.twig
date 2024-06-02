@@ -1,56 +1,99 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
+{% if pages.header.template == events %}       
+            <section class="filter-container relative border-bottom border-dark border-w-large column align-start gap-sm">
+                <!-- Filtre -->
+                
+                <div class="filter-wrapper border-bottom">
+                    <p class="bold">Rechercher</p>
+                    <label for="localisation">Localisation</label>
+                    <select name="localisation" id="localisation">
+                        <option value="loire">Loire</option>
+                        <option value="rhone">Rhône</option>
+                        <option value="puy-dome">Puy de Dôme</option>
+                    </select> 
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                
+                <!-- Tri -->
+                <span class="sort-wrapper">
+                    <span class="bold">Trier par</span>
+                    <div class="sort-container flex gap-sm">
+                        <div class="flex gap-sm">
+                            <p>Date</p>
+                            <button class="icon-sort" data-value="asc">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up"><path d="m18 15-6-6-6 6"/></svg>
+                            </button>
+                        </div>
+                        <div class="flex gap-sm">
+                            <p>Localisation</p>
+                            <select name="localisation" class="localisation">
+                                <option value="42">Loire</option>
+                                <option value="69">Rhône</option>
+                                <option value="63">Puy de Dôme</option>
+                            </select>
+                        </div>
+                    </div>
+                </span>
+            </section>
+            {% endif %}
+
+<ul class="all-events">
     {% for event in page.collection %}
 
-<li data-aos="fade-up" data-aos-duration="2000" class="event flex gap border-bottom border-dark flex-50 padding-md">
-    <!--Block for event cover-->
-    <div class="cover-wrapper w-50">
-        {% for image in event.media.images %}
-        <img class="cover border-dark" src="{{ image.url }}" alt="Event cover">
-        {% endfor %}
-    </div>
-    <!--Block for event information-->
-    <div class="info-container w-50">
-        <h1 class="titre"><strong class="artist">{{ event.title|e }}</strong></h1>
-        <!--Block for event description-->
-        <p class="description border-bottom border-dark">{{ event.header.description }}</p>
-        <!--Block for event date-->
-        <span class="info-wrapper">
-            <p>Quand?</p> 
-            {% if event.header.start_date == event.header.end_date %}
-            <p>Le</p>
-            <p>{{ event.header.start_date|date("m/d/Y", "Europe/Paris") }}</p>
-            {% else %}
-            <p>Du</p>
-            <p>{{ event.header.start_date|date("m/d/Y", "Europe/Paris") }}</p>
-            <p class="bold"> au </p>
-            <p>{{ event.header.end_date|date("m/d/Y", "Europe/Paris") }}</p>
-            {% endif %}
-        </span>
-        <!--Block for event location-->
-        <span class="info-wrapper">
-            <p>Où?</p>
-            <p>{{ event.header.place }}</p>
-        </span>
-        <!--Block for event fee-->
-        <span class="info-wrapper">
-            <p>Combien? </p>
-            <p>{{ event.header.price }}€</p>
-        </span>
-        <hr>
-        <!--Block for event buttons-->
-         <div class="flex gap">
-            <button class="add-event flex align-center gap-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-plus"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/><path d="M3 10h18"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
-                Ajouter
-            </button>
-            <button class="share flex align-center gap-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat-2"><path d="m2 9 3-3 3 3"/><path d="M13 18H7a2 2 0 0 1-2-2V6"/><path d="m22 15-3 3-3-3"/><path d="M11 6h6a2 2 0 0 1 2 2v10"/></svg>
-            </button>
+    <li data-aos="fade-up" data-aos-duration="2000" class="event flex gap border-bottom border-dark flex-50 padding-md">
+        <!--Block for event cover-->
+        <div class="cover-wrapper w-50">
+            {% for image in event.media.images %}
+            <img class="cover border-dark" src="{{ image.url }}" alt="Event cover">
+            {% endfor %}
         </div>
-</li>
+        <!--Block for event information-->
+        <div class="info-container w-50">
+            <h1 class="titre"><strong class="artist">{{ event.title|e }}</strong></h1>
+            <!--Block for event description-->
+            <p class="description border-bottom border-dark">{{ event.header.description }}</p>
+            <!--Block for event date-->
+            <span class="info-wrapper">
+                <p>Quand?</p> 
+                {% if event.header.start_date == event.header.end_date %}
+                <p>Le</p>
+                <p class="date">{{ event.header.start_date|date("m/d/Y", "Europe/Paris") }}</p>
+                {% else %}
+                <p>Du</p>
+                <p class="date">{{ event.header.start_date|date("m/d/Y", "Europe/Paris") }}</p>
+                <p class="bold"> au </p>
+                <p>{{ event.header.end_date|date("m/d/Y", "Europe/Paris") }}</p>
+                {% endif %}
+            </span>
+            <!--Block for event location-->
+            <span class="info-wrapper">
+                <p>Où?</p>
+                <p class="departement">{{ event.header.departement }}</p>
+                <p class="place">{{ event.header.place }}</p>
+            </span>
+            <!--Block for event fee-->
+            <span class="info-wrapper">
+                <p>Combien? </p>
+                <p class="price">{{ event.header.price }}€</p>
+            </span>
+            <hr>
+            <!--Block for event buttons-->
+            <div class="flex gap">
+                <button class="add-event flex align-center gap-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-plus"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/><path d="M3 10h18"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
+                    Ajouter
+                </button>
+                <button class="share flex align-center gap-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat-2"><path d="m2 9 3-3 3 3"/><path d="M13 18H7a2 2 0 0 1-2-2V6"/><path d="m22 15-3 3-3-3"/><path d="M11 6h6a2 2 0 0 1 2 2v10"/></svg>
+                </button>
+            </div>
+        </div>
+    </li>
     {% endfor %}
+</ul>
     {# /your/site/grav/user/themes/custom-theme/templates/blog.html.twig #}
 
 {% set collection = page.collection %}

@@ -319,6 +319,12 @@ input[type="submit"]{
     transform: rotate(30deg);
 }
 
+.icon-sort{
+    background-color: inherit;
+    padding: 0px 0px;
+    color: var(--dark);
+}
+
 /* 2.6 Media */
 img{
     width: 100%;
